@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { initializeApp,FirebaseApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Auth,createUserWithEmailAndPassword } from "firebase/auth"
 import { Database, getDatabase, ref, set, onValue  } from "firebase/database";
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';

@@ -4,7 +4,7 @@
   <div *ngFor="let chat of chats" class="mb">
     <mat-card>
       <mat-card-subtitle>
-        <span class="text-white">{{chat.username}} (Sent: {{chat.timestamp | date:'long'}})</span>
+        <span class="text-white">{{chat.username}} (Sent: {{chat.timestamp | date:'short'}})</span>
       </mat-card-subtitle>
       <mat-card-content>
         <p class="bg-dark text-white">{{chat.message}}</p>
@@ -15,7 +15,7 @@
 <form class="bg-info" id="message" [formGroup]="form" (ngSubmit)="onChatSubmit(form.value)">
   <mat-form-field appearance="outline" class="fw">
     <mat-label>Username</mat-label>
-    <input matInput formControlName="username">
+    <input  matInput formControlName="username">
   </mat-form-field>
   <mat-form-field appearance="outline" class="fw">
     <mat-label>Enter Chat</mat-label>

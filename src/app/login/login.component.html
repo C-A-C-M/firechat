@@ -1,1 +1,23 @@
-<p>login works!</p>
+
+<div class="login">
+    <form class="custom-form" method="post">
+      <h1>Login</h1>
+      <input
+        type="email"
+        [(ngModel)]="usuario.email"
+        name="email"
+        placeholder="ingrese su email"
+        required="required"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+      />
+      <input
+        type="password"
+        [(ngModel)]="usuario.password"
+        name="password"
+        placeholder="ingrese su contraseña"
+        required="required"
+        pattern="[a-zA-Z0-9#%$&]{8,20}"
+      />
+      <button type="submit" (click)="ingresar()">Log in</button>
+    </form>
+  </div>

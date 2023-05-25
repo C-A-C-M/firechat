@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { initializeApp,FirebaseApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { Auth,createUserWithEmailAndPassword } from "firebase/auth"
 import { Database, getDatabase, ref, set, onValue  } from "firebase/database";
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
 import { Chat } from './chat';
-
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +35,7 @@ export class AppComponent {
     const chat = form;
     chat.timestamp = new Date().toString();
     chat.id = uuidv4();
-    set(ref(this.db, `chats/${chat.id}`), chat);
+    set(ref(this.db, 'chats/${chat.id}'), chat);
     this.form = this.formBuilder.group({
       'message' : [],
       'username' : [chat.username],

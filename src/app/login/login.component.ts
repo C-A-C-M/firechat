@@ -1,5 +1,5 @@
 import { Component, Inject, Injectable } from '@angular/core';
-import { Auth,createUserWithEmailAndPassword } from "firebase/auth"
+import { UsuarioService } from '../usuario.service';
 
 
 @Component({
@@ -11,10 +11,16 @@ import { Auth,createUserWithEmailAndPassword } from "firebase/auth"
   providedIn:'root'
 })
 export class LoginComponent {
+usuario= {
+    email:'',
+    password:''
+ }
+    constructor(private usuarioService:UsuarioService){}
 
-  constructor(private auth : Auth) { }
-
-  registrar({email, password}:any){
-    return createUserWithEmailAndPassword(this.auth,email,password)
-  }
+    ingresar(){
+      console.log(this.usuario);
+      const {email,password}=this.usuario
+      this.usuarioService.login(email,password).then(res =>
+        alert("usuario registrado"))
+    }
 }
